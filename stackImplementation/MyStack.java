@@ -103,7 +103,11 @@ public class MyStack
     }
     public static void main(String[] args)
     {
-        MyStack2 ob = new MyStack2();
+        MyStack ob = new MyStack();
+        /*
+        * This is for Application of the Above DATA STRUCTURE
+        * This class can be imported and used later
+        */
         ob.push(1);         // pushed 1 on stack
         System.out.println(ob.pop()); // removed 1 from stack
         ob.push(2);// pushed 2 on stack
