@@ -1,5 +1,7 @@
 package QueueLLImplementation;
 
+import java.util.NoSuchElementException;
+
 public class QueueLL<Gen>
 {
     MyLinkedList<Gen> ll;
@@ -9,20 +11,26 @@ public class QueueLL<Gen>
     }
     public void enqueue(Gen x)
     {
+        if (ll.size() == 20)
+            throw new NoSuchElementException("The Queue Is Full!");
         ll.addRear(x);
     }
     public Gen dequeue()
     {
         if(empty())
-            throw new IllegalCallerException("The Queue in Empty!");
+            throw new NoSuchElementException("The Queue in Empty!");
         return ll.removeFront();
     }
     public int search(Gen x)
     {
+        if(empty())
+            throw new NoSuchElementException("The Queue in Empty!");
         return ll.indexOf(x);
     }
     public Gen peek()
     {
+        if(empty())
+            throw new NoSuchElementException("The Queue in Empty!");
         return ll.get(0);
     }
     public boolean empty()
@@ -35,10 +43,14 @@ public class QueueLL<Gen>
     }
     public Gen getFrontElement()
     {
+        if(empty())
+            throw new NoSuchElementException("The Queue in Empty!");
         return ll.get(0);
     }
     public Gen getRearElement()
     {
+        if(empty())
+            throw new NoSuchElementException("The Queue in Empty!");
         return ll.get(ll.size() - 1);
     }
     public String display()

@@ -26,6 +26,10 @@ public class MyLinkedList<Gen>    // Gen generic type
             this.next = addr;
         }
     }
+    private boolean isFull()
+    {
+        return size == 20;
+    }
     public boolean isEmpty()
     {
         // to check if the size of the Linked List is 0

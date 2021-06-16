@@ -4,21 +4,25 @@ package QueueALImplementation;
 // The above statement may be required If we
 // are importing form a different package
 
+import java.util.NoSuchElementException;
+
 public class QueueAL<Gen>
 {
     MyArrayList<Gen> ls;
     public QueueAL()
     {
-        ls = new MyArrayList<>(1);
+        ls = new MyArrayList<>();
     }
     public void enqueue(Gen x)
     {
+        if(ls.isFull())
+            throw new NoSuchElementException("The Queue is Full!");
         ls.addToRear(x);
     }
     public Gen dequeue()
     {
         if(empty())
-            throw new IllegalCallerException("The Queue in Empty!");
+            throw new NoSuchElementException("The Queue in Empty!");
         return ls.removeFront();
     }
     public int search(Gen x)
@@ -35,7 +39,7 @@ public class QueueAL<Gen>
     }
     public int getSize()
     {
-        return ls.size;
+        return ls.size();
     }
     public Gen getFrontElement()
     {
@@ -48,6 +52,10 @@ public class QueueAL<Gen>
     public String display()
     {
         return ls.toString();
+    }
+    public int maxElements()
+    {
+        return ls.buffer();
     }
     public void addToFront()
     {
@@ -64,9 +72,5 @@ public class QueueAL<Gen>
     public Gen removeFromIndex(int index)
     {
         throw new UnsupportedOperationException("This Opeartion is Unsupported!");
-    }
-    public int buffer()
-    {
-        throw new UnsupportedOperationException("This Operation is Unsupported!");
     }
 }
